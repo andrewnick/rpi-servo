@@ -31,14 +31,15 @@ board.on("ready", function() {
       console.log("Quitting");
       process.exit();
     } else if (key.name === "up") {
-      speed += 0.05
+      speed += 0.01
       console.log("faster");
     } else if (key.name === "down") {
-      speed -= 0.05
+      speed -= 0.01
       console.log("slower");
     } else if (key.name === "space") {
       console.log("Stopping");
       servo.stop();
+      speed = 0;
     } else if (key.name === "left") {
       console.log("left")
       dir = "ccw"
