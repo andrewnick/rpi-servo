@@ -14,6 +14,9 @@ board.on("ready", function() {
 
   var servo = new five.Servo.Continuous('P1-12');
 
+  var speed = 0;
+  var dir = 'cw';
+
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
   process.stdin.setRawMode(true);
@@ -28,18 +31,28 @@ board.on("ready", function() {
       console.log("Quitting");
       process.exit();
     } else if (key.name === "up") {
-      console.log("CW");
-      servo.cw();
+      speed += 0.05
+      console.log("faster");
     } else if (key.name === "down") {
-      console.log("CCW");
-      servo.ccw();
+      speed -= 0.05
+      console.log("slower");
     } else if (key.name === "space") {
       console.log("Stopping");
       servo.stop();
     } else if (key.name === "left") {
-	console.log("left")
-	servo.cw(0.1);
+      console.log("left")
+      dir = "ccw"
+    } else if (key.name === "right") {
+    	console.log("right")
+      dir = "cw";
     }
+
+    if (dir === 'cw') {
+      servo.cw(speed);
+    } else {
+      servo.ccw(speed);
+    }
+
   });
 });
 
