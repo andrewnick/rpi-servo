@@ -31,10 +31,10 @@ board.on("ready", function() {
       console.log("Quitting");
       process.exit();
     } else if (key.name === "up") {
-      speed += 0.01
+      speed += 0.05
       console.log("faster");
     } else if (key.name === "down") {
-      speed -= 0.01
+      speed -= 0.05
       console.log("slower");
     } else if (key.name === "space") {
       console.log("Stopping");
