@@ -30,6 +30,8 @@
         line-height: 1.6;
       }
 
+      button
+
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,9 +53,9 @@
         socket.emit('TP', $(this).data('dir'));
       });
 
-      // socket.on('chat message', function(msg){
-      //   $('#messages').append($('<li>').text(msg));
-      // });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
     </script>
   </body>
 </html>

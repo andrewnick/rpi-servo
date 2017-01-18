@@ -57,7 +57,7 @@ board.on("ready", function() {
   });
 
   io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
+    socket.on('TP', function(msg){
       // socket.broadcast.emit('hi');
        // io.emit('chat message', msg);
       console.log('message: ' + msg);
@@ -69,13 +69,13 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-  	socket.broadcast.emit('hi');
-  	 io.emit('chat message', msg);
-    console.log('message: ' + msg);
-  });
-});
+// io.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//   	socket.broadcast.emit('hi');
+//   	 io.emit('chat message', msg);
+//     console.log('message: ' + msg);
+//   });
+// });
 
 // app.listen(3000, function () {
 //  console.log('Example app listening on port 3000!');
