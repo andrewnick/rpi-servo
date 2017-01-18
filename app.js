@@ -55,6 +55,14 @@ board.on("ready", function() {
     }
 
   });
+
+  io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+      // socket.broadcast.emit('hi');
+       // io.emit('chat message', msg);
+      console.log('message: ' + msg);
+    });
+  });
 });
 
 app.get('/', function (req, res) {
