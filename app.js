@@ -75,10 +75,10 @@ board.on("ready", function() {
         console.log("Stopping");
         servo.stop();
         speed = 0;
-      } else if (msg === "left") {
+      } else if (msg === "Left") {
         console.log("left")
         dir = "ccw"
-      } else if (msg === "right") {
+      } else if (msg === "Right") {
         console.log("right")
         dir = "cw";
       }
