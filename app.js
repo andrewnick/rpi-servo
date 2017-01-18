@@ -61,6 +61,33 @@ board.on("ready", function() {
       // socket.broadcast.emit('hi');
        // io.emit('chat message', msg);
       console.log('message: ' + msg);
+
+      if (msg === "q") {
+        console.log("Quitting");
+        process.exit();
+      } else if (msg === "Faster") {
+        speed += 0.05
+        console.log("faster");
+      } else if (msg === "Slower") {
+        speed -= 0.05
+        console.log("slower");
+      } else if (msg === "Stop") {
+        console.log("Stopping");
+        servo.stop();
+        speed = 0;
+      } else if (msg === "left") {
+        console.log("left")
+        dir = "ccw"
+      } else if (msg === "right") {
+        console.log("right")
+        dir = "cw";
+      }
+
+      if (dir === 'cw') {
+        servo.cw(speed);
+      } else {
+        servo.ccw(speed);
+      }
     });
   });
 });

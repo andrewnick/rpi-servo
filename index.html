@@ -30,7 +30,10 @@
         line-height: 1.6;
       }
 
-      button
+      .button:focus,
+      .button:active {
+        background-color: #483D3F;
+      }
 
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,6 +44,7 @@
       <button class="button" data-dir="Reverse">Reverse</button>
       <button class="button" data-dir="Slower">Slower</button>
       <button class="button" data-dir="Up">Faster</button>
+      <button class="button" data-dir="Stop">Stop</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
